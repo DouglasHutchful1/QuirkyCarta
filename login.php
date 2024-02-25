@@ -4,7 +4,7 @@
 
 session_start();
 
-if(isset($_POST['submit'])){
+if(isset($_POST['login_submit'])){
 
    $filter_email = filter_var($_POST['email'], FILTER_SANITIZE_STRING);
    $email = mysqli_real_escape_string($conn, $filter_email);
@@ -98,31 +98,40 @@ if(isset($message)){
           <!-- REGISTRATION FORM -->
           <?php
 
-if(isset($_POST['submit'])){
+if(isset($_POST['register_submit'])) {
+    // Assuming $conn is your database connection
 
-   $filter_name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
-   $name = mysqli_real_escape_string($conn, $filter_name);
-   $filter_email = filter_var($_POST['email'], FILTER_SANITIZE_STRING);
-   $email = mysqli_real_escape_string($conn, $filter_email);
-   $filter_pass = filter_var($_POST['pass'], FILTER_SANITIZE_STRING);
-   $pass = mysqli_real_escape_string($conn, md5($filter_pass));
-   $filter_cpass = filter_var($_POST['cpass'], FILTER_SANITIZE_STRING);
-   $cpass = mysqli_real_escape_string($conn, md5($filter_cpass));
+    // Sanitize and escape user input
+    $name = mysqli_real_escape_string($conn, filter_var($_POST['name'], FILTER_SANITIZE_STRING));
+    $address = mysqli_real_escape_string($conn, filter_var($_POST['address'], FILTER_SANITIZE_STRING));
+    $phone_number = mysqli_real_escape_string($conn, filter_var($_POST['phone_number'], FILTER_SANITIZE_STRING));
+    $email = mysqli_real_escape_string($conn, filter_var($_POST['email'], FILTER_SANITIZE_STRING));
+    $pass = mysqli_real_escape_string($conn, md5(filter_var($_POST['pass'], FILTER_SANITIZE_STRING)));
+    $cpass = mysqli_real_escape_string($conn, md5(filter_var($_POST['cpass'], FILTER_SANITIZE_STRING)));
 
-   $select_users = mysqli_query($conn, "SELECT * FROM `users` WHERE email = '$email'") or die('query failed');
+    // Check if the user already exists
+    $select_users = mysqli_query($conn, "SELECT * FROM `users` WHERE email = '$email'") or die('query failed');
 
-   if(mysqli_num_rows($select_users) > 0){
-      $message[] = 'user already exist!';
-   }else{
-      if($pass != $cpass){
-         $message[] = 'confirm password not matched!';
-      }else{
-         mysqli_query($conn, "INSERT INTO `users`(name, email, password) VALUES('$name', '$email', '$pass')") or die('query failed');
-         $message[] = 'registered successfully!';
-         header('location:login.php');
-      }
-   }
+    if(mysqli_num_rows($select_users) > 0){
+        $message[] = 'User already exists!';
+    } else {
+        // Check if passwords match
+        if($pass != $cpass) {
+            $message[] = 'Confirm password not matched!';
+        } else {
+            $stmt = mysqli_prepare($conn, "INSERT INTO `users` (name, address, phone_number, email, password) VALUES (?, ?, ?, ?, ?)");
+            mysqli_stmt_bind_param($stmt, "sssss", $name, $address, $phone_number, $email, $pass);
 
+            if(mysqli_stmt_execute($stmt)) {
+                $message[] = 'Registered successfully!';
+                header('location: login.php');
+            } else {
+                $message[] = 'Registration failed. Please try again.';
+            }
+
+            mysqli_stmt_close($stmt);
+        }
+    }
 }
 
 ?>
@@ -131,12 +140,12 @@ if(isset($_POST['submit'])){
             <h2 class="title">Sign up</h2>
 
             <div class="input-field">
-              <i class="fas fa-user"></i>
-              <input type="text" name="name" placeholder="Enter your name">
+              <i class="fas fa-envelope"></i>
+              <input type="text" name="email" placeholder="Email Address">
             </div>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="text" name="fullname" placeholder="Full Name">
+              <input type="text" name="name" placeholder="Full Name">
             </div>
             <div class="input-field">
               <i class="fas fa-map-marker-alt"></i>
