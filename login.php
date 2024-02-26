@@ -99,7 +99,6 @@ if(isset($message)){
           <?php
 
 if(isset($_POST['register_submit'])) {
-    // Assuming $conn is your database connection
 
     // Sanitize and escape user input
     $name = mysqli_real_escape_string($conn, filter_var($_POST['name'], FILTER_SANITIZE_STRING));
