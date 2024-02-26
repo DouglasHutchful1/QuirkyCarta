@@ -16,7 +16,7 @@ if(isset($_POST['order'])){
     $number = mysqli_real_escape_string($conn, $_POST['number']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $method = mysqli_real_escape_string($conn, $_POST['method']);
-    $address = mysqli_real_escape_string($conn, 'flat no. '. $_POST['flat'].', '. $_POST['street'].', '. $_POST['city'].', '. $_POST['country'].' - '. $_POST['pin_code']);
+    $address = mysqli_real_escape_string($conn, 'flat no. '. $_POST['flat'].', '. $_POST['note'].' - ');
     $placed_on = date('d-M-Y');
 
     $cart_total = 0;
@@ -125,7 +125,7 @@ if(isset($_POST['order'])){
             
             <div class="inputBox">
                 <span>Note :</span>
-                <input type="text" name="" placeholder="e.g.delivery note">
+                <input type="text" name="note" placeholder="e.g.delivery note">
             </div>
             
         </div>
