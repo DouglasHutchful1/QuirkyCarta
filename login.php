@@ -33,11 +33,11 @@ if(isset($_POST['login_submit'])){
          header('location:home.php');
 
       }else{
-         $message[] = 'no user found!';
+         $message[] = 'No such user found';
       }
 
    }else{
-      $message[] = 'incorrect email or password!';
+      $message[] = 'Incorrect Email or Password';
    }
 
 }
@@ -75,9 +75,14 @@ if(isset($message)){
  <div class="container">
       <div class="forms-container">
         <div class="signin-signup">
+        
 
+        <!--Sign In Form-->
           <form method="post" action="" class="sign-in-form">
-            <input type="hidden" name="csrf_token" value="your_csrf_token_here">
+              <!--logo image--->
+        <div class="logo-container">
+        <img src="images/quirkylogo.JPG" width="400px" style="margin-bottom:-30px;" alt="logo">
+</div>
             <h2 class="title">Sign in</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
@@ -89,7 +94,7 @@ if(isset($message)){
             </div>
 
             <div class='f-password'>
-                <h4 class="forgot-password"><a href="../templates/forgot.html" class="fp-link">Forgot Password?</a></h4>
+                <h4 class="forgot-password"><a href="forgot.php" class="fp-link">Forgot Password?</a></h4>
             </div>
 
             <input type="submit" class="btn solid" value="Sign In" name="login_submit">
@@ -99,6 +104,7 @@ if(isset($message)){
           <?php
 
 if(isset($_POST['register_submit'])) {
+    // Assuming $conn is your database connection
 
     // Sanitize and escape user input
     $name = mysqli_real_escape_string($conn, filter_var($_POST['name'], FILTER_SANITIZE_STRING));

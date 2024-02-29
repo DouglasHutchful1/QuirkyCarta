@@ -18,18 +18,21 @@ if(isset($message)){
     <a href="home.php" class="logo"><img src="./img/quirkylogo.JPG" width="130px"  alt="quirky"></a>
 
         <nav class="navbar" style="margin-left:auto;">
-            <ul>
+        <ul>
                 <li><a href="home.php">home</a></li>
-                <li><a href="#">Categories</a>
+                <li><a href="store.php">Categories</a>
                     <ul>
-                        <li><a href="about.php">Ghana Kaftan</a></li>
-                        <li><a href="contact.php">Shoes</a></li>
+                        <li><a href="fabrics.php">Ghana Kaftan</a></li>
+                        <li><a href="shoes.php">Shoes</a></li>
+                        <li><a href="clothes.php">Clothes</a></li>
+                        <li><a href="fabrics.php">Fabrics</a></li>
+
+
                     </ul>
                 </li>
-                <li><a href="shop.php">new arrivals</a></li>
                 <li><a href="orders.php">orders</a></li>
-                <li><a href="shop.php">about us</a></li>
-                <li><a href="orders.php">contact</a></li>
+                <li><a href="about.php">about us</a></li>
+                <li><a href="contact.php">contact</a></li>
                
             </ul>
         </nav>
