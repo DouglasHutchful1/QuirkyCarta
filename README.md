@@ -11,7 +11,7 @@ Welcome to QuirkyCarta, a project that marks my journey into the world of web de
 
 ## My First Completed Project!
 
-I am thrilled to present QuirkyCarta, my inaugural personal project in web development. This endeavor allowed me to delve into various technologies and implement a range of functionalities.
+I am happy to present QuirkyCarta, my personal project in web development. This endeavor allowed me to delve into various technologies and implement a range of functionalities.
 
 ## Functionalities
 
