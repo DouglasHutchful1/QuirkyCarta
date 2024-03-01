@@ -22,7 +22,7 @@ if(isset($message)){
                 <li><a href="home.php">home</a></li>
                 <li><a href="store.php">Categories</a>
                     <ul>
-                        <li><a href="fabrics.php">Ghana Kaftan</a></li>
+                        <li><a href="kaftan.php">Ghana Kaftan</a></li>
                         <li><a href="shoes.php">Shoes</a></li>
                         <li><a href="clothes.php">Clothes</a></li>
                         <li><a href="fabrics.php">Fabrics</a></li>
