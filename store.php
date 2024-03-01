@@ -89,11 +89,11 @@ if(isset($_POST['add_to_cart'])){
 
    <div class="box-container">
 
-      <?php
-         $select_products = mysqli_query($conn, "SELECT * FROM `products`") or die('query failed');
-         if(mysqli_num_rows($select_products) > 0){
-            while($fetch_products = mysqli_fetch_assoc($select_products)){
-      ?>
+   <?php
+            $select_products = mysqli_query($conn, "SELECT * FROM `products` ORDER BY RAND()") or die('query failed');
+            if (mysqli_num_rows($select_products) > 0) {
+                while ($fetch_products = mysqli_fetch_assoc($select_products)) {
+            ?>
       <form action="" method="POST" class="box">
          <a href="view_page.php?pid=<?php echo $fetch_products['id']; ?>" class="fas fa-eye"></a>
          <div class="price">¢<?php echo $fetch_products['price']; ?></div>

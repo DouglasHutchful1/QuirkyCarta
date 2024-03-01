@@ -226,6 +226,6 @@ if (isset($_POST['register_submit'])) {
     </div>
 
     <!-- JAVASCRIPT -->
-    <script src="templates/login.js"></script>
+    <script src="js/login.js"></script>
   </body>
   </html>

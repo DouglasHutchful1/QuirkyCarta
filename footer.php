@@ -3,7 +3,7 @@
     <div class="box">
     <h3>Navigation</h3>
             <a href="home.php">Home</a>
-            <a href="shop.php">Categories</a>
+            <a href="store.php">Categories</a>
             <a href="contact.php">Contact</a>
             <a href="about.php">About</a>
 
