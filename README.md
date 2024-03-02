@@ -42,7 +42,7 @@ As a budding developer, this project reflects my initial steps into the vast rea
 
 ## Preview
 
-![Vid](https://drive.google.com/file/d/1DHBGYXyF3U5MpgtO5WjKI7ClH7XfGgzK/view?usp=sharing)
+![Watch Video here] --https://drive.google.com/file/d/1DHBGYXyF3U5MpgtO5WjKI7ClH7XfGgzK/view?usp=sharing
 ![Screenshot 1](preview/screenshot1.JPG)
 ![Screenshot 2](preview/screenshot2.JPG)
 ![Screenshot 3](preview/screenshot3.JPG)
