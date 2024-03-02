@@ -42,6 +42,13 @@ As a budding developer, this project reflects my initial steps into the vast rea
 
 ## Preview
 
+![Vid](preview/2024-03-01 19-52-23.mkv)
+![Screenshot 1](preview/screenshot1.JPG)
+![Screenshot 2](preview/screenshot2.JPG)
+![Screenshot 3](preview/screenshot3.JPG)
+![Screenshot 4](preview/Screenshot4.JPG)
+
+
 
 
 ## Getting Started
